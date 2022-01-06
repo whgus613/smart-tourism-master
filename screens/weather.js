@@ -119,6 +119,13 @@ const weather = ({ route }) => {
             return weatherIcon[6];
         }
     }; //  아이콘 표시 함수
+
+    const getDate = (date) => {
+        var week = ['일', '월', '화', '수', '목', '금', '토'];
+        var dayOfWeek = week[new Date(date).getDay()];
+        return dayOfWeek;
+    }
+
     const makeText = (code) => {
         const date = new Date();
         const month = date.getMonth();
@@ -127,36 +134,36 @@ const weather = ({ route }) => {
         if (convertedCode[1] === "00:00") {
             if (dayCounter === 0) {
                 dayCounter += 1;
-                return `월요일(${month + 1}.${day} 오전) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 2) {
                 dayCounter += 1;
-                return `화요일(${month + 1}.${day} 오전) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 4) {
                 dayCounter += 1;
-                return `수요일(${month + 1}.${day} 오전) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 6) {
                 dayCounter += 1;
-                return `목요일(${month + 1}.${day} 오전) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 8) {
                 dayCounter += 1;
-                return `금요일(${month + 1}.${day} 오전) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             }
         } else {
             if (dayCounter === 1) {
                 dayCounter += 1;
-                return `월요일(${month + 1}.${day} 오후) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 3) {
                 dayCounter += 1;
-                return `화요일(${month + 1}.${day} 오후) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 5) {
                 dayCounter += 1;
-                return `수요일(${month + 1}.${day} 오후) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 7) {
                 dayCounter += 1;
-                return `목요일(${month + 1}.${day} 오후) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             } else if (dayCounter === 9) {
                 dayCounter = 1;
-                return `금요일(${month + 1}.${day} 오후) `;
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
             }
         }
     }; // 요일 및 시간 표시 함수
@@ -252,7 +259,7 @@ const weather = ({ route }) => {
             <View
                 style={{
                     marginTop: 20,
-                    marginRight: 10,
+                    marginLeft: 20,
                     width: "100%",
                 }}>
                 <View>
