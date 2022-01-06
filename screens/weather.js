@@ -151,19 +151,19 @@ const weather = ({ route }) => {
         } else {
             if (dayCounter === 1) {
                 dayCounter += 1;
-                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오후");
             } else if (dayCounter === 3) {
                 dayCounter += 1;
-                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오후");
             } else if (dayCounter === 5) {
                 dayCounter += 1;
-                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오후");
             } else if (dayCounter === 7) {
                 dayCounter += 1;
-                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오후");
             } else if (dayCounter === 9) {
                 dayCounter = 1;
-                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오전");
+                return (convertedCode[0].substring(5) + "(" + getDate(convertedCode[0]) + ")" + " 오후");
             }
         }
     }; // 요일 및 시간 표시 함수
