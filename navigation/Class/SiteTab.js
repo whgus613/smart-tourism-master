@@ -19,7 +19,7 @@ const SiteTab = ({ route }) => {
     const getClasses = async () => {
         const results = await Data.filter((data) => {
             const code = data.hcnt_hcd;
-            return String(code).includes("A040");
+            return String(code).includes("A030");
         });
         const finalData = results.filter((result) => {
             const code = result.hcnt_hcd;

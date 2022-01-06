@@ -9,7 +9,7 @@ import DetailTobTab from "./DetailTopTab";
 
 const Navigation = createNativeStackNavigator();
 
-const Detail = ({ route, navigation: { navigate, goBack } }) => {
+const Detail = ({ route, navigation: { goBack } }) => {
     const {
         params: { contents, data },
     } = route;
@@ -29,7 +29,7 @@ const Detail = ({ route, navigation: { navigate, goBack } }) => {
                             }}>
                             <Feather
                                 name="chevron-left"
-                                size={34}
+                                size={40}
                                 color="white"
                                 style={{ marginLeft: -20 }}
                             />

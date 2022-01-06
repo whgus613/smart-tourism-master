@@ -18,13 +18,13 @@ const TopTab = ({ route }) => {
         const results = await (
             await fetch("http://203.253.207.111:8080/jsmith/restful/content?type=0&page=1&scd=A00")
         ).json();
-        const preData = await results.filter((data) => {
+        const preData = results.filter((data) => {
             const code = data.hcnt_hcd;
             return String(code).includes("0000");
         });
-        await setData(results);
-        await setCategories(preData);
-        await setLoading(false);
+        setData(results);
+        setCategories(preData);
+        setLoading(false);
     };
     useEffect(() => {
         getCategories();
