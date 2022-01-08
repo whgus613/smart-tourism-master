@@ -86,8 +86,8 @@ const weatherIcon = [
     "weather-partly-cloudy",
     "weather-cloudy",
     "weather-rainy",
-    "weather-snowy",
     "weather-snowy-rainy",
+    "weather-snowy",
     "weather-rainy",
 ];
 let iconName;
@@ -111,7 +111,7 @@ const weather = ({ route }) => {
             return weatherIcon[2];
         } else if (code === "비" || code === "흐리고 비") {
             return weatherIcon[3];
-        } else if (code === "비/눈") {
+        } else if (code === "비/눈" || code === "흐리고 눈") {
             return weatherIcon[4];
         } else if (code === "눈") {
             return weatherIcon[5];
