@@ -36,7 +36,7 @@ const mainScreen = () => {
                     </View>
                     <TouchableOpacity
                         style={styles.main__contents}
-                        onPress={() => navigation.navigate("Category")}>
+                        onPress={() => navigation.navigate("Home")}>
                         <Image
                             source={require("../images/activity.png")}
                             style={styles.main__contents__logo}></Image>

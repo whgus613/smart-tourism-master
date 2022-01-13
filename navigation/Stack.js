@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import mainScreen from "../screens/mainScreen";
+import homeScreen from "./homeScreen";
 import TopTab from "./TopTab";
 import { colors } from "../variables/colors";
 import Detail from "./Detail";
@@ -24,6 +25,9 @@ const Stack = () => {
                 name="Main"
                 component={mainScreen}
                 options={{ headerShown: false }}></NativeStack.Screen>
+            <NativeStack.Screen
+                name="Home"
+                component={homeScreen}></NativeStack.Screen>
             <NativeStack.Screen
                 name="Category"
                 component={TopTab}
