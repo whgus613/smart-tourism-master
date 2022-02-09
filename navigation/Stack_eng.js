@@ -4,8 +4,10 @@ import mainScreen from "../screens/mainScreen";
 import homeScreen from "./homeScreen";
 import mainScreen_eng from "../screens/mainScreen_eng";
 import TopTab from "./TopTab";
+import TopTab_eng from "./TopTab_eng";
 import { colors } from "../variables/colors";
 import Detail from "./Detail";
+import Detail_eng from "./Detail_eng";
 
 const NativeStack = createNativeStackNavigator();
 
@@ -24,19 +26,19 @@ const Stack = () => {
             }}>
             <NativeStack.Screen
                 name="Main"
-                component={mainScreen}
+                component={mainScreen_eng}
                 options={{ headerShown: false }}></NativeStack.Screen>
             <NativeStack.Screen
                 name="Home"
                 component={homeScreen}></NativeStack.Screen>
             <NativeStack.Screen
                 name="Category"
-                component={TopTab}
+                component={TopTab_eng}
                 options={{
-                    headerTitle: "스마트 관광"}}></NativeStack.Screen>
+                    headerTitle: "Smart Tourism"}}></NativeStack.Screen>
             <NativeStack.Screen
                 name="Detail"
-                component={Detail}
+                component={Detail_eng}
                 options={{ headerShown: false }}></NativeStack.Screen>
         </NativeStack.Navigator>
     );

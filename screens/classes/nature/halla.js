@@ -57,7 +57,7 @@ const halla = ({ route, navigation: { navigate } }) => {
                 contents[i].hcnt_addr = contents[i].hcnt_addr.split(" ");
             }
         }
-        sortData[8].hcnt_id = "석굴암 탐방로";
+        sortData[8].hcnt_id = "Seokguram Trail";
         sortData.map((item) => {
             preData.filter((data) => {
                 if (item.hcnt_id === data.hcnt_name) {

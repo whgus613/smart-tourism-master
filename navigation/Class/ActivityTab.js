@@ -51,7 +51,7 @@ const ActivityTab = ({ route }) => {
                     backgroundColor: colors.orangeRed,
                 },
             }}>
-            <Material.Screen name={classes[1].hcnt_id} component={farm}></Material.Screen>
+            <Material.Screen name="FARM" component={farm}></Material.Screen>
             <Material.Screen name={classes[2].hcnt_id} component={riding}></Material.Screen>
             <Material.Screen name={classes[3].hcnt_id} component={submarine}></Material.Screen>
             <Material.Screen name={classes[4].hcnt_id} component={cart}></Material.Screen>

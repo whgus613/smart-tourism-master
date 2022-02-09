@@ -4,148 +4,160 @@ import YoutubePlayer from 'react-native-youtube-iframe';
 import Swiper from 'react-native-web-swiper';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/core";
+import { colors } from '../variables/colors';
 
 const {height: SCREEN_HEIGHT}=Dimensions.get("window");
 
-const homeScreen = ({route}) => {
+const homeScreen = () => {
 
   const navigation = useNavigation();
 
-    const [loading, setLoading] = useState(true);
-    const [leftImages, setLeftImages] = useState([]);
-    const [rightImages, setRightImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [leftImages, setLeftImages] = useState([]);
+  const [rightImages, setRightImages] = useState([]);
 
-    let contents = [];
-    let leftContents = [];
-    let rightContents = [];
+  let contents = [];
+  let leftContents = [];
+  let rightContents = [];
 
-    const getContents = async() => {
-        const results = await(
-            await fetch("http://203.253.207.111:8080/jsmith/restful/content?type=0&page=1&hcd=A0301")
-            ).json();
+  const getContents = async() => {
+    const results = await(
+        await fetch("http://203.253.207.111:8080/jsmith/restful/content?type=0&page=1&hcd=A0301")
+        ).json();
 
-        const preData = results.filter((data) => {
-            const code = data.hcnt_sub_img;
-            return code !== "";
-        });
+    const preData = results.filter((data) => {
+        const code = data.hcnt_sub_img;
+        return code !== "";
+    });
 
-        for (let i=0; i<preData.length; i++){
-            contents[i]=preData[i];
-        }
-
-        for (let i=0; i<preData.length; i++){
-            contents[i].hcnt_sub_img = contents[i].hcnt_sub_img.split(",");
-        }
-        
-        for (let i=0; i<Math.ceil(preData.length/2); i++){
-            leftContents[i]=preData[i];
-        }
-
-        for (let i = Math.ceil(preData.length / 2); i <preData.length; i++){
-            rightContents[i-Math.ceil(preData.length/2)]=preData[i];
-        }
-
-        setLeftImages(leftContents);
-        setRightImages(rightContents);
-        setLoading(false);
-
+    for (let i=0; i<preData.length; i++){
+        contents[i]=preData[i];
     }
 
-    useEffect(()=> {
-        getContents();
-    }, []);
+    for (let i=0; i<preData.length; i++){
+        contents[i].hcnt_sub_img = contents[i].hcnt_sub_img.split(",");
+    }
+    
+    for (let i=0; i<Math.ceil(preData.length/2); i++){
+        leftContents[i]=preData[i];
+    }
+
+    for (let i = Math.ceil(preData.length / 2); i <preData.length; i++){
+        rightContents[i-Math.ceil(preData.length/2)]=preData[i];
+    }
+
+    setLeftImages(leftContents);
+    setRightImages(rightContents);
+    setLoading(false);
+  }
+
+  useEffect(()=> {
+      getContents();
+  }, []);
 
   return loading? (
     <View
-        style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignContent: 'center',
-        }}>
-        <ActivityIndicator />
+      style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignContent: 'center',
+      }}>
+      <ActivityIndicator />
     </View>
     ):(
-      <View style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.youtube}>
-          <Swiper
-            controlsProps={{
-              prevTitle: "<",
-              nextTitle: ">",
-            }}>
+        <Swiper
+          controlsProps={{
+            prevTitle: "◀",
+            nextTitle: "▶",
+            prevTitleStyle: {
+              color: "grey",
+            },
+            nextTitleStyle: {
+              color: "grey",
+            },
+            dotActiveStyle: {
+              backgroundColor: colors.orangeRed,
+            }
+          }}>
           <View>
             <YoutubePlayer
               height={300}
-              play={true}
-              videoId={'u5X84tcao1g'}/>
+              play={false}
+              videoId={'H-4jYnU5RAY'}
+              />
           </View>
           <View>
             <YoutubePlayer
               height={300}
               play={false}
-              videoId={'u5X84tcao1g'}/>
+              videoId={'H-4jYnU5RAY'}
+              />
           </View>
           <View>
             <YoutubePlayer
               height={300}
               play={false}
-              videoId={'u5X84tcao1g'}/>
+              videoId={'H-4jYnU5RAY'}
+              />
           </View>
-          </Swiper>
+        </Swiper>
       </View>
       <View style={{
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-      }}>
-            <Text style={styles.font}>테마관광지</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Category")}>
-                <Text style={styles.font}>+more</Text>
-            </TouchableOpacity>
-        </View>
-        <ScrollView style={styles.app}>
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        }}>
+        <Text style={styles.font}>테마관광지</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Category")}>
+              <Text style={styles.font}>+more</Text>
+          </TouchableOpacity>
+      </View>
+      <ScrollView style={styles.app}>
         <View  
-            style={{
-                flex: 1,
-                flexDirection: "row",
-                alignItems: "space-between",
-            }}>
-            <View style={{marginLeft: 22}}>
-                {leftImages.map((image, index)=>{
-                    return(
-                            <Image
-                                source={{
-                                    uri: `http://203.253.207.111:8080/jsmith_image${image.hcnt_sub_img[0]}`,
-                                }}
-                                style={{
-                                    width: 160,
-                                    height: 160,
-                                    marginRight: 5,
-                                    marginBottom: 20,
-                                }}
-                                key={index}
-                                resizeMode="stretch"></Image>
-                    );
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            alignItems: "space-between",
+          }}>
+          <View style={{marginLeft: 22}}>
+            {leftImages.map((image, index)=>{
+              return(
+                <Image
+                    source={{
+                        uri: `http://203.253.207.111:8080/jsmith_image${image.hcnt_sub_img[0]}`,
+                    }}
+                    style={{
+                      width: 160,
+                      height: 160,
+                      marginRight: 5,
+                      marginBottom: 20,
+                    }}
+                    key={index}
+                    resizeMode="stretch"></Image>
+                  );
                 })}
-            </View>
-            <View style = {{marginLeft: 15, marginRight: 20}}>
-                {rightImages.map((image, index) => {
-                    return(
-                            <Image
-                                source={{
-                                    uri: `http://203.253.207.111:8080/jsmith_image${image.hcnt_sub_img[0]}`,
-                                }}
-                                style={{
-                                    width: 160,
-                                    height: 160,
-                                    marginLeft: 5,
-                                    marginBottom: 20,
-                                }}
-                                key={index}
-                                resizeMode="stretch"></Image>
-                    )
-                })}
-            </View>
+          </View>
+          <View style = {{marginLeft: 15, marginRight: 20}}>
+                        {rightImages.map((image, index) => {
+            return(
+              <Image
+                  source={{
+                      uri: `http://203.253.207.111:8080/jsmith_image${image.hcnt_sub_img[0]}`,
+                  }}
+                  style={{
+                    width: 160,
+                    height: 160,
+                    marginLeft: 5,
+                    marginBottom: 20,
+                  }}
+                  key={index}
+                  resizeMode="stretch"></Image>
+                )
+              })}
+          </View>
         </View>
     </ScrollView>
       <View style={{
@@ -182,7 +194,8 @@ const homeScreen = ({route}) => {
           </TouchableOpacity>
         </View>
   </View>   
-)};
+  );
+};
 
 
 const styles = StyleSheet.create({

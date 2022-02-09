@@ -51,11 +51,9 @@ const OlleTab = ({ route }) => {
                 },
             }}>
             <Material.Screen name={classes[1].hcnt_id} component={one2five}></Material.Screen>
-            <Material.Screen name={classes[2].hcnt_id} component={six2ten}></Material.Screen>
-            <Material.Screen name={classes[3].hcnt_id} component={eleven2fifteen}></Material.Screen>
-            <Material.Screen
-                name={classes[4].hcnt_id}
-                component={sixteen2twentyone}></Material.Screen>
+            <Material.Screen name="OLLE TRAIL 6~10" component={six2ten}></Material.Screen>
+            <Material.Screen name="OLLE TRAIL 11~15" component={eleven2fifteen}></Material.Screen>
+            <Material.Screen name="OLLE TRAIL 16~21" component={sixteen2twentyone}></Material.Screen>
         </Material.Navigator>
     );
 };

@@ -51,10 +51,10 @@ const SiteTab = ({ route }) => {
                     backgroundColor: colors.orangeRed,
                 },
             }}>
-            <Material.Screen name={classes[1].hcnt_id} component={theme}></Material.Screen>
+            <Material.Screen name="THEME" component={theme}></Material.Screen>
             <Material.Screen name={classes[2].hcnt_id} component={touristSpot}></Material.Screen>
-            <Material.Screen name={classes[3].hcnt_id} component={museum}></Material.Screen>
-            <Material.Screen name={classes[4].hcnt_id} component={gallery}></Material.Screen>
+            {/*<Material.Screen name={classes[3].hcnt_id} component={gallery}></Material.Screen>*/}
+            <Material.Screen name={classes[4].hcnt_id} component={museum}></Material.Screen>
             <Material.Screen name={classes[5].hcnt_id} component={camp}></Material.Screen>
         </Material.Navigator>
     );

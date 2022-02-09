@@ -3,7 +3,7 @@ import React from "react";
 import { Text, Image, View, StatusBar, TouchableOpacity } from "react-native";
 import styles from "../styles/styles";
 
-const mainScreen = () => {
+const mainScreen_eng = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
@@ -18,13 +18,13 @@ const mainScreen = () => {
                             resizeMode={"contain"}
                             source={require("../images/suit-case.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>추천여행상품</Text>
+                        <Text style={styles.main__contents__text}>Best Tour Packages</Text>
                     </View>
                     <View style={styles.main__contents}>
                         <Image
                             source={require("../images/map.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>나의여행상품</Text>
+                        <Text style={styles.main__contents__text}>My Travel Itinerary</Text>
                     </View>
                 </View>
                 <View style={styles.main__row}>
@@ -32,7 +32,7 @@ const mainScreen = () => {
                         <Image
                             source={require("../images/site.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>복합관광지</Text>
+                        <Text style={styles.main__contents__text}>Hallasan Beacon</Text>
                     </View>
                     <TouchableOpacity
                         style={styles.main__contents}
@@ -40,7 +40,7 @@ const mainScreen = () => {
                         <Image
                             source={require("../images/activity.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>관광명소</Text>
+                        <Text style={styles.main__contents__text}>Tourist Attractions</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.main__row}>
@@ -48,13 +48,13 @@ const mainScreen = () => {
                         <Image
                             source={require("../images/restaurant.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>숙식장소</Text>
+                        <Text style={styles.main__contents__text}>Accommodation</Text>
                     </View>
                     <View style={styles.main__contents}>
                         <Image
                             source={require("../images/chatbot.png")}
                             style={styles.main__contents__logo}></Image>
-                        <Text style={styles.main__contents__text}>챗봇</Text>
+                        <Text style={styles.main__contents__text}>Chatbot</Text>
                     </View>
                 </View>
             </View>
@@ -62,4 +62,4 @@ const mainScreen = () => {
         </View>
     );
 };
-export default mainScreen;
+export default mainScreen_eng;
